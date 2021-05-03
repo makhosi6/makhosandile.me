@@ -1,5 +1,5 @@
 <p align="center">
-<a alt="thumbnail" href="https://makhosandile.me"><img src="./assets/img/thumbnail.png" ></a>
+    <a alt="thumbnail" href="https://makhosandile.me"><img src="./assets/img/thumbnail.png" ></a>
 </p>
 
 ## makhosandile.me.
