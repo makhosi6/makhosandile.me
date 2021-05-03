@@ -1282,3 +1282,13 @@ section {
 #footer .credits a {
   color: #34b7a7;
 }
+
+/*--------------------------------------------------------------
+# Additions
+--------------------------------------------------------------*/
+
+.portfolio-item:hover{
+  background-color: #a3ece479;
+  border: 1px solid #34b7a7;
+  
+}
