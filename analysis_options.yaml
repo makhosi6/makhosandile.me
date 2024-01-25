@@ -1,0 +1,7 @@
+
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    avoid_unnecessary_containers: false
+    sized_box_for_whitespace: false
