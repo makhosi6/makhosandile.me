@@ -37,7 +37,7 @@ class CopyrightFooterSection extends StatelessWidget {
                     ),
                   ),
                   const TextSpan(
-                    text: '\n© $year Khosi 👑',
+                    text: '\n© $year Makhosi',
                   ),
                 ],
               ),
