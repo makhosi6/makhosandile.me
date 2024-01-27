@@ -1,9 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'package:makhosandile_me/theme.dart';
 import 'package:makhosandile_me/widgets/footer/footer_section.dart';
 import 'package:makhosandile_me/widgets/hero/hero_section.dart';
-import 'package:makhosandile_me/widgets/hero/nav_bar.dart';
+import 'package:makhosandile_me/widgets/navbar/nav_bar.dart';
 import 'package:makhosandile_me/widgets/story/story_section.dart';
 import 'package:makhosandile_me/widgets/work/work_section.dart';
 
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: theme,
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -44,7 +47,7 @@ class MyHomePage extends StatelessWidget {
             controller: scrollController,
             shrinkWrap: true,
             itemCount: _widgets.length,
-            itemBuilder: (context, index) => Wrapper(child: _widgets[index]),
+            itemBuilder: (context, index) => _widgets[index],
           ),
         ),
       )),
@@ -70,13 +73,13 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Color color = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+    Color color = Colors.primaries[Random().nextInt(Colors.primaries.length)];
     return Container(
-      // decoration: const BoxDecoration(
-      // border: Border.symmetric(
-      // horizontal: BorderSide(color: color),
-      // ),
-      // ),
+      decoration: BoxDecoration(
+        border: Border.symmetric(
+          horizontal: BorderSide(color: color),
+        ),
+      ),
       child: child,
     );
   }

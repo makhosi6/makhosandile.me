@@ -7,7 +7,6 @@ class StorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final viewPortHeight = MediaQuery.of(context).size.height;
     final viewPortWidth = MediaQuery.of(context).size.width;
     final padding = viewPortWidth * 0.08;
     final primaryPadding = EdgeInsets.all(padding);
@@ -17,68 +16,69 @@ class StorySection extends StatelessWidget {
       child: Container(
         width: viewPortWidth,
         constraints: BoxConstraints(
-            // minHeight: viewPortHeight / 2,
-            // maxHeight: viewPortHeight,
             maxWidth: isBiggerScreen ? double.infinity : viewPortWidth * 0.8),
-        padding: primaryPadding.copyWith(top: padding / 2),
-        child: Wrap(runSpacing: 40, children: [
-          // Flexible(
-          //   child:
+        padding: primaryPadding.copyWith(
+          top: padding / 2,
+        ),
+        child: Wrap(runSpacing: 10, children: [
           Container(
             constraints: BoxConstraints(
               minWidth: viewPortWidth / 0.7,
             ),
             child: Text(
-              "When I was 5, I got adbucted by a unicorn family. When they returned me to earth, I joined a designer school. But, for real, what I learned with my kidnaptive family really gave an edge to my creative language.",
+              "My journey into the world of technology has been one of passion, dedication, and continuous learning. As a self-taught developer, I've embraced the challenges and rewards that come with mastering a craft from the ground up.",
               style: GoogleFonts.epilogue(
                 fontSize: 24,
                 fontStyle: FontStyle.normal,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            // ),
           ),
-          // Flexible(
-          //     child:
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                color: storyBgColor,
-                padding: const EdgeInsets.all(4),
-                child: Text(
-                  " Being a human is way too complicated. Time to be a unicorn.",
-                  style: TextStyle(
-                    color: storyColor,
+          ...List.generate(
+            stories.length,
+            (index) => Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  color: storyBgColor,
+                  padding: const EdgeInsets.all(4),
+                  child: Text(
+                    stories[index]["intro"].toString(),
+                    style: TextStyle(
+                      color: storyColor,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(4),
-                child: const Text(
-                    "Try it and you’ll see. Then your Figma files are just gonna fly in color, glitter, interactions and autolayout."),
-              ),
-              Container(
-                color: storyBgColor,
-                padding: const EdgeInsets.all(4),
-                child: Text(
-                  " Being a human is way too complicated. Time to be a unicorn.",
-                  style: TextStyle(
-                    color: storyColor,
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  child: Text(
+                    stories[index]["body"].toString(),
                   ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(4),
-                child: const Text(
-                    "Available for projects, from Monday to Tuesday, mainy between 14 and 16. (Unless there is a unicorn race on TV - DUH -in that case, come back another day). \nProjects include, RocknRoll covers, furniture refurbishing, Unicorn potty training and more."),
-              )
-            ],
+              ],
+            ),
           ),
-          // ),
         ]),
       ),
     );
   }
 }
+
+final stories = [
+  {
+    "intro": "My development journey began five years ago, ",
+    "body":
+        "and since then, I've learned a great deal. In 2021, I joined Quickloc8, where I contributed to the development of their flagship app using Flutter and Vue.js. This cutting-edge application was designed to revolutionize asset tracking."
+  },
+  {
+    "intro": "In 2023, I made a significant transition to Teamgeek. ",
+    "body":
+        "known for its developer-friendly environment/workplace, Teamgeek provides me with perfect platform to expand my technical portfolio. There, I immersed myself in various projects, utilizing my knowledge of JavaScript, Angular, PHP/Laravel, and Python. I delivered solutions that were not just code, but a blend of innovation, efficiency, and user-centric design."
+  },
+  {
+    "intro": "Away from the keyboard,",
+    "body":
+        "I cherish the moments spent with my family, grounding myself in the joy and support they provide. My passion for philosophy also offers a unique lens through which I view my work and the world, fostering a pursuit of wisdom and perspective.",
+  },
+];
