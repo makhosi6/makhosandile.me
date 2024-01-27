@@ -12,6 +12,8 @@ ThemeData theme = ThemeData.light(
   colorScheme: const ColorScheme.light().copyWith(
     primary: textColor,
   ),
+  popupMenuTheme:
+      PopupMenuThemeData(color: storyBgColor, surfaceTintColor: storyBgColor),
   textTheme: GoogleFonts.epilogueTextTheme(
     baseTheme.textTheme,
   ).apply(

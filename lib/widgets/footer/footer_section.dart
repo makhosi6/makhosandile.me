@@ -8,7 +8,6 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final viewPortHeight = MediaQuery.of(context).size.height;
     final viewPortWidth = MediaQuery.of(context).size.width;
     final padding = viewPortWidth * 0.08;
     final isBiggerScreen = viewPortWidth > 800;
@@ -18,10 +17,6 @@ class Footer extends StatelessWidget {
       children: [
         Container(
           width: viewPortWidth,
-          // constraints: BoxConstraints(
-          //   maxHeight: viewPortHeight,
-          //   minHeight: viewPortHeight / 2,
-          // ),
           padding: EdgeInsets.all(padding),
           child: Wrap(
             runSpacing: verticalSpacing,

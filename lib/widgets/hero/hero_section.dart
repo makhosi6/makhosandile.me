@@ -6,8 +6,6 @@ class HeroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // const navBarHeight = 100;
-    // final viewPortHeight = MediaQuery.of(context).size.height;
     final viewPortWidth = MediaQuery.of(context).size.width;
     final padding = viewPortWidth * 0.08;
     const spacing = 30.0;
@@ -16,7 +14,6 @@ class HeroSection extends StatelessWidget {
 
     return Container(
       width: viewPortWidth,
-      // constraints: BoxConstraints(minHeight: viewPortHeight - (navBarHeight)),
       padding: EdgeInsets.all(padding),
       child: Wrap(
         alignment:
@@ -26,9 +23,6 @@ class HeroSection extends StatelessWidget {
           Container(
             width: (isBiggerScreen ? (viewPortWidth / 2) : viewPortWidth) -
                 padding * (isBiggerScreen ? 2 : 1),
-            // constraints: const BoxConstraints(
-            // // minHeight: (viewPortHeight / 2) - (padding / 2),
-            // ),
             child: HeroText(
               alignment: isBiggerScreen ? TextAlign.left : TextAlign.center,
             ),

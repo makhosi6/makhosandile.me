@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:makhosandile_me/helpers.dart';
 
 class FooterLinksText extends StatelessWidget {
   const FooterLinksText({super.key});
@@ -34,7 +35,7 @@ class FooterLinksText extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 320),
               padding: const EdgeInsets.only(bottom: 20),
               child: Text(
-                "This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com",
+                "Got a project? Reach out, Let's chat!  I'm all about making cool stuff with code.",
                 textAlign: isBiggerScreen ? null : TextAlign.center,
               ),
             ),
@@ -48,17 +49,9 @@ class FooterLinksText extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(
-                        FontAwesomeIcons.github,
-                        size: 30,
+                      onPressed: () => launchSocialMediaUrl(
+                        'https://linkedin.com/in/makhosandile-ndondo',
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
-                    child: IconButton(
-                      onPressed: () {},
                       icon: const FaIcon(
                         FontAwesomeIcons.linkedin,
                         size: 30,
@@ -68,7 +61,21 @@ class FooterLinksText extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () => launchSocialMediaUrl(
+                        'https://github.com/makhosi6/',
+                      ),
+                      icon: const FaIcon(
+                        FontAwesomeIcons.github,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: IconButton(
+                      onPressed: () => launchSocialMediaUrl(
+                        'https://www.kaggle.com/makhosandilendondo',
+                      ),
                       icon: const FaIcon(
                         FontAwesomeIcons.kaggle,
                         size: 30,
