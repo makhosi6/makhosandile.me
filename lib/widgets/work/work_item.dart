@@ -55,7 +55,7 @@ class _WorkItemState extends State<WorkItem> {
             }
           },
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 250),
             transform: Matrix4.identity()..scale(isHovered ? 1.1 : 1.0),
             transformAlignment: Alignment.center,
             curve: Curves.easeInOut,
