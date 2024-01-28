@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:makhosandile_me/helpers.dart';
+import 'package:makhosandile_me/theme.dart';
 
 class CopyrightFooterSection extends StatelessWidget {
   const CopyrightFooterSection({super.key});
@@ -22,6 +23,7 @@ class CopyrightFooterSection extends StatelessWidget {
                 text:
                     'My heartfelt thanks to the open source community for the ',
                 style: GoogleFonts.dmSans(
+                  color: textColor,
                   fontSize: 11.5,
                 ),
                 children: [
