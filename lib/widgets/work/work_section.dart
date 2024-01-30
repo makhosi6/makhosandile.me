@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:makhosandile_me/widgets/utils/scroll_to.dart';
 import 'package:makhosandile_me/widgets/work/work_item.dart';
 
-class WorkSection extends StatelessWidget {
-  const WorkSection({super.key});
+class WorkSection extends StatefulWidget {
+  final GlobalKey<WorkSectionState> glKey;
+  const WorkSection({required this.glKey}) : super(key: glKey);
+
+  @override
+  State<WorkSection> createState() => WorkSectionState();
+}
+
+class WorkSectionState extends State<WorkSection> with ScrollTo {
+  ///
+  void Function()? scrollToWidget;
+
+  ///
+  @override
+  void initState() {
+    super.initState();
+    scrollToWidget = scrollToInvocation(context, widget.glKey);
+  }
 
   @override
   Widget build(BuildContext context) {

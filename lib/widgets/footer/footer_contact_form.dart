@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makhosandile_me/helpers.dart';
 
 final _contactForm = GlobalKey<FormState>(debugLabel: "contact-form");
 
@@ -84,7 +85,7 @@ class _FooterContactFormState extends State<FooterContactForm> {
               },
             ),
             ContactFormSubmitBtn(
-              onPressed: () {
+              onPressed: () async {
                 ///
                 if (mounted) {
                   setState(() {
@@ -94,17 +95,32 @@ class _FooterContactFormState extends State<FooterContactForm> {
 
                 ///
                 if (_contactForm.currentState!.validate()) {
+                  ///
                   debugPrint(
                       "NAME: $userName , EMAIL: $userEmailAddress , MESSAGE: $userMessage");
 
-                  Future.delayed(const Duration(seconds: 7), () {
-                    if (mounted) {
-                      setState(() {
-                        willAlwaysValidate = false;
-                      });
-                    }
-                    _contactForm.currentState!.reset();
-                  });
+                  ///
+                  if (await sendHelpAndContactInfo(ContactInfo(
+                      name: userName,
+                      email: userEmailAddress,
+                      message: userMessage))) {
+                    Future.delayed(const Duration(seconds: 1), () {
+                      ///
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Request sent!'),
+                      ));
+
+                      ///
+                      if (mounted) {
+                        setState(() {
+                          willAlwaysValidate = false;
+                        });
+                      }
+
+                      ///
+                      _contactForm.currentState!.reset();
+                    });
+                  }
                 }
               },
             )

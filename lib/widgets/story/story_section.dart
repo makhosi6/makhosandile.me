@@ -1,9 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:makhosandile_me/theme.dart';
+import 'package:makhosandile_me/widgets/utils/scroll_to.dart';
 
-class StorySection extends StatelessWidget {
-  const StorySection({super.key});
+class StorySection extends StatefulWidget {
+  final GlobalKey<StorySectionState> glKey;
+  const StorySection({required this.glKey}) : super(key: glKey);
+
+  @override
+  State<StorySection> createState() => StorySectionState();
+}
+
+class StorySectionState extends State<StorySection> with ScrollTo {
+  ///
+  void Function()? scrollToWidget;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollToWidget = scrollToInvocation(context, widget.glKey);
+  }
 
   @override
   Widget build(BuildContext context) {

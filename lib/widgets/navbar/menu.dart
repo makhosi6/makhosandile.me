@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makhosandile_me/main.dart';
 import 'package:makhosandile_me/theme.dart';
 
 enum MenuItems { about, work, contact }
@@ -11,6 +12,13 @@ class Menu extends StatefulWidget {
 }
 
 class MenuState extends State<Menu> {
+  ///
+  GlobalKey<dynamic> getMenuItemKey(MenuItems item) => switch (item) {
+        MenuItems.about => storySectionKey,
+        MenuItems.work => workSectionKey,
+        MenuItems.contact => footerSectionKey
+      };
+
   MenuItems? selectedMenu;
   @override
   Widget build(BuildContext context) {
@@ -52,7 +60,11 @@ class MenuState extends State<Menu> {
               itemBuilder: (BuildContext context) => MenuItems.values
                   .map(
                     (mItem) => PopupMenuItem<MenuItems>(
-                      value: MenuItems.work,
+                      value: mItem,
+                      onTap: () => getMenuItemKey(mItem)
+                          .currentState
+                          ?.scrollToWidget
+                          ?.call(),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
                         child: Row(
@@ -75,19 +87,38 @@ class MenuState extends State<Menu> {
                   .toList());
         }
 
-        return const Row(
+        return Row(
           children: [
-            Padding(
-              padding: EdgeInsets.only(left: 40.0),
-              child: Text("About"),
+            InkWell(
+              onTap: () => storySectionKey.currentState?.scrollToWidget?.call(),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 20.0,
+                ),
+                child: const Text("About"),
+              ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 40.0),
-              child: Text("Work"),
+            InkWell(
+              onTap: () => workSectionKey.currentState?.scrollToWidget?.call(),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 20.0,
+                ),
+                child: const Text("Work"),
+              ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 40.0),
-              child: Text("Contact"),
+            InkWell(
+              onTap: () =>
+                  footerSectionKey.currentState?.scrollToWidget?.call(),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 20.0,
+                ),
+                child: const Text("Contact"),
+              ),
             )
           ],
         );

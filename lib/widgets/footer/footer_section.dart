@@ -2,9 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:makhosandile_me/widgets/footer/copyright_footer_section.dart';
 import 'package:makhosandile_me/widgets/footer/footer_contact_form.dart';
 import 'package:makhosandile_me/widgets/footer/footer_links_text.dart';
+import 'package:makhosandile_me/widgets/utils/scroll_to.dart';
 
-class Footer extends StatelessWidget {
-  const Footer({super.key});
+class FooterSection extends StatefulWidget {
+  final GlobalKey<FooterSectionState> glKey;
+  const FooterSection({required this.glKey}) : super(key: glKey);
+
+  @override
+  State<FooterSection> createState() => FooterSectionState();
+}
+
+class FooterSectionState extends State<FooterSection> with ScrollTo {
+  ///
+  void Function()? scrollToWidget = () => {};
+
+  @override
+  void initState() {
+    super.initState();
+    scrollToWidget = scrollToInvocation(context, widget.glKey);
+  }
 
   @override
   Widget build(BuildContext context) {
