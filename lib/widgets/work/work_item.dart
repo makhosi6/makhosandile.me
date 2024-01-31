@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makhosandile_me/helpers.dart';
 import 'package:makhosandile_me/theme.dart';
 import 'package:makhosandile_me/widgets/utils/hover_focus.dart';
 
@@ -6,13 +7,9 @@ class WorkItem extends StatefulWidget {
   final String? title;
   final String? subTitle;
   final String? image;
+  final String? url;
 
-  const WorkItem({
-    super.key,
-    this.title,
-    this.subTitle,
-    this.image,
-  });
+  const WorkItem({super.key, this.title, this.subTitle, this.image, this.url});
 
   @override
   State<WorkItem> createState() => _WorkItemState();
@@ -30,7 +27,7 @@ class _WorkItemState extends State<WorkItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => launchSocialMediaUrl(widget.url!),
       child: Container(
         margin: const EdgeInsets.only(top: 40.0),
         decoration: const BoxDecoration(),

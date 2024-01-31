@@ -53,12 +53,10 @@ class WorkSectionState extends State<WorkSection> with ScrollTo {
                   final title = projects[index]["name"];
                   final subtitle = projects[index]["description"];
                   final image = projects[index]["image"];
+                  final url = projects[index]["codeRepository"];
 
                   return WorkItem(
-                    title: title,
-                    subTitle: subtitle,
-                    image: image,
-                  );
+                      title: title, subTitle: subtitle, image: image, url: url);
                 },
               ),
             ),
