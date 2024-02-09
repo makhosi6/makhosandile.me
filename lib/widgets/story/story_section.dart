@@ -33,9 +33,11 @@ class StorySectionState extends State<StorySection> with ScrollTo {
         width: viewPortWidth,
         constraints: BoxConstraints(
             maxWidth: isBiggerScreen ? double.infinity : viewPortWidth * 0.8),
-        padding: primaryPadding.copyWith(
-          top: padding / 2,
-        ),
+        padding: isBiggerScreen
+            ? primaryPadding.copyWith(
+                top: padding / 4,
+              )
+            : null,
         child: Wrap(runSpacing: 10, children: [
           Container(
             constraints: BoxConstraints(

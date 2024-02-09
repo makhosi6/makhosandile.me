@@ -45,6 +45,8 @@ class WorkSectionState extends State<WorkSection> with ScrollTo {
           Container(
             width: double.infinity,
             child: Wrap(
+              runSpacing: 20,
+              spacing: 20,
               alignment: WrapAlignment.spaceEvenly,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: List.generate(
