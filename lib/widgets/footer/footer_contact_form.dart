@@ -21,6 +21,8 @@ class _FooterContactFormState extends State<FooterContactForm> {
 
   String? userMessage;
 
+  bool buttonIsLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,6 +87,7 @@ class _FooterContactFormState extends State<FooterContactForm> {
               },
             ),
             ContactFormSubmitBtn(
+              isLoading: buttonIsLoading,
               onPressed: () async {
                 ///
                 if (mounted) {
@@ -95,6 +98,13 @@ class _FooterContactFormState extends State<FooterContactForm> {
 
                 ///
                 if (_contactForm.currentState!.validate()) {
+                  ///
+                  if (mounted) {
+                    setState(() {
+                      buttonIsLoading = true;
+                    });
+                  }
+
                   ///
                   debugPrint(
                       "NAME: $userName , EMAIL: $userEmailAddress , MESSAGE: $userMessage");
@@ -113,6 +123,7 @@ class _FooterContactFormState extends State<FooterContactForm> {
                       ///
                       if (mounted) {
                         setState(() {
+                          buttonIsLoading = false;
                           willAlwaysValidate = false;
                         });
                       }
@@ -245,7 +256,12 @@ class MessageTextInputField extends StatelessWidget {
 
 class ContactFormSubmitBtn extends StatelessWidget {
   final void Function()? onPressed;
-  const ContactFormSubmitBtn({super.key, this.onPressed});
+  final bool isLoading;
+  const ContactFormSubmitBtn({
+    super.key,
+    this.isLoading = false,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -265,14 +281,21 @@ class ContactFormSubmitBtn extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: const Text(
-        "Submit",
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-          color: Colors.white,
-        ),
-      ),
+      child: isLoading
+          ? const CircularProgressIndicator(
+              strokeWidth: 3.0,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Colors.white,
+              ),
+            )
+          : const Text(
+              "Submit",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
     );
   }
 }
