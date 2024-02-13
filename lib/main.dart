@@ -9,9 +9,11 @@ import 'package:makhosandile_me/widgets/navbar/nav_bar.dart';
 import 'package:makhosandile_me/widgets/story/story_section.dart';
 import 'package:makhosandile_me/widgets/utils/scroll_controller_provider.dart';
 import 'package:makhosandile_me/widgets/work/work_section.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() {
-  runApp(const MyApp());
+  setUrlStrategy(PathUrlStrategy());
+  runApp(ScrollControllerProvider(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +27,11 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: theme,
       debugShowCheckedModeBanner: false,
-      home: ScrollControllerProvider(child: const MyHomePage()),
+      onGenerateRoute: (settings) {
+        // When navigating to a non-defined route, redirect to home
+        return MaterialPageRoute(builder: (context) => const MyHomePage());
+      },
+      home: const MyHomePage(),
     );
   }
 }
