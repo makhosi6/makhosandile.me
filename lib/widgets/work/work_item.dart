@@ -93,7 +93,7 @@ class _WorkItemState extends State<WorkItem> {
                 Tooltip(
                   key: tooltipKey,
                   triggerMode: TooltipTriggerMode.manual,
-                  message: widget.subTitle,
+                  message: widget.title,
                   child: Container(
                     padding: const EdgeInsets.all(2.0),
                     height: 120,

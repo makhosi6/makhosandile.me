@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+              w[l] = w[l] || [];
+              w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+              var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+              j.async = true;
+              j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+              f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-5VJ4RZCC");
+          </script>
+          <!-- End Google Tag Manager -->
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var location = window.location.href;
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location) {
+                history.replaceState(null, null, redirect);
+            }
+        });
+    </script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+  
+
+        div.content {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* Add any additional styling you need here */
+        .loader {
+            /* Example styling for a loader */
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #3498db;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Error: Redirecting...</h1> <br>
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        window.onbeforeunload = function() {
+            sessionStorage.redirect = window.location.href;
+        };
+
+        setTimeout(() => {
+            window.location = "/"
+        }, 300)
+    </script>
+</body>
+</html>
