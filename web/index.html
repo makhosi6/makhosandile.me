@@ -15,6 +15,22 @@
     the `--base-href` argument provided to `flutter build`.
   -->
     <base href="$FLUTTER_BASE_HREF" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TZ80NT7C30"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-TZ80NT7C30");
+    </script>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -29,6 +45,7 @@
       })(window, document, "script", "dataLayer", "GTM-5VJ4RZCC");
     </script>
     <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <meta name="description" content="A new Flutter project." />
