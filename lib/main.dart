@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: theme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) {
-        // When navigating to a non-defined route, redirect to home
+        // settings.name        // When navigating to a non-defined route, redirect to home
         return MaterialPageRoute(builder: (context) => const MyHomePage());
       },
       home: const MyHomePage(),
