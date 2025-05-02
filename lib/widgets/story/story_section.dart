@@ -85,18 +85,19 @@ class StorySectionState extends State<StorySection> with ScrollTo {
 
 final stories = [
   {
-    "intro": "My development journey began five years ago, ",
+    "intro": "My development journey began over five years ago, ",
     "body":
-        "and since then, I've learned a great deal. In 2021, I joined Quickloc8, where I contributed to the development of their flagship app using Flutter and Vue.js. This cutting-edge application was designed to revolutionize asset tracking."
+        "and it’s been an exciting path of growth and learning. In 2021, I joined Quickloc8, where I worked on their flagship asset-tracking app using Flutter and Vue.js. I helped improve the app’s UI, data handling, and cross-platform compatibility to meet high performance standards in real-time location tracking."
   },
   {
-    "intro": "In 2023, I made a significant transition to Teamgeek. ",
+    "intro": "In 2023, I transitioned to Teamgeek,",
     "body":
-        "known for its developer-friendly environment/workplace, Teamgeek provides me with perfect platform to expand my technical portfolio. There, I immersed myself in various projects, utilizing my knowledge of JavaScript, Angular, PHP/Laravel, and Python. I delivered solutions that were not just code, but a blend of innovation, efficiency, and user-centric design."
+        "a developer-first company that supports continuous learning and collaboration. I became part of a team building a complex CRM system for an insurance client, using PHP/Laravel, Angular, Python, and SQL. I focused on implementing core business logic, backend APIs, and frontend components that helped streamline customer onboarding and claims workflows."
   },
   {
     "intro": "Away from the keyboard,",
     "body":
-        "I cherish the moments spent with my family, grounding myself in the joy and support they provide. My passion for philosophy also offers a unique lens through which I view my work and the world, fostering a pursuit of wisdom and perspective.",
+        "I cherish the moments spent with my family, grounding myself in the joy and support they provide. My passion for philosophy also offers a unique lens through which I view my work and the world, fostering a pursuit of wisdom and perspective. I also attend developer meetups and hackathons, like Indie Hackers and community civic tech events, where I connect with fellow developers, share knowledge, and explore new tools and ideas."
   },
 ];
+

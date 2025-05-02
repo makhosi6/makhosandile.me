@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:makhosandile_me/helpers.dart';
 import 'package:makhosandile_me/theme.dart';
 import 'package:makhosandile_me/widgets/utils/hover_focus.dart';
+import 'package:makhosandile_me/widgets/work/work_item_page.dart';
 
 class WorkItem extends StatefulWidget {
   final String? title;
@@ -52,10 +53,10 @@ class _WorkItemState extends State<WorkItem> {
             }
           },
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 250),
+            duration: const Duration(milliseconds: 350),
             transform: Matrix4.identity()..scale(isHovered ? 1.1 : 1.0),
             transformAlignment: Alignment.center,
-            curve: Curves.easeInOut,
+            curve: Curves.elasticInOut,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

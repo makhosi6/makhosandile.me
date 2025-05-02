@@ -9,22 +9,26 @@ class CopyrightFooterSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const year = 2020;
+    final year = DateTime.now().year;
     return Container(
       color: Colors.grey.shade200,
       height: 70,
       width: MediaQuery.of(context).size.width,
       child: Center(
         child: Container(
+            padding: const EdgeInsets.all(16),
             width: MediaQuery.of(context).size.width / 2,
             child: RichText(
+              strutStyle: const StrutStyle(
+                height: 1.5,
+              ),
               textAlign: TextAlign.center,
               text: TextSpan(
                 text:
                     'My heartfelt thanks to the open source community for the ',
                 style: GoogleFonts.dmSans(
                   color: textColor,
-                  fontSize: 11.5,
+                  // fontSize: 11.5,
                 ),
                 children: [
                   TextSpan(
@@ -38,8 +42,13 @@ class CopyrightFooterSection extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  const TextSpan(
-                    text: '\n© $year Makhosi',
+                  TextSpan(
+                    text:
+                        '\n© $year Makhosi (makhosandile.me)\nAll rights reserved.',
+                    style: GoogleFonts.dmSans(
+                      color: textColor,
+                      // fontSize: 11.5,
+                    ),
                   ),
                 ],
               ),
