@@ -119,3 +119,17 @@ class _WorkItemState extends State<WorkItem> {
     );
   }
 }
+
+class WorkItemData {
+  WorkItemData({
+    this.title,
+    this.subTitle,
+    this.image,
+    this.url,
+  });
+
+  final String? title;
+  final String? subTitle;
+  final String? image;
+  final String? url;
+}
